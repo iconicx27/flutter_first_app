@@ -9,6 +9,9 @@ class LoginPage extends StatelessWidget {
         color: Colors.white,
         child: Column(
           children: [
+            const SizedBox(
+              height: 30.0,
+            ),
             Image.asset(
               "assets/images/Login_Page.png",
               fit: BoxFit.cover,
