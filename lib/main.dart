@@ -131,7 +131,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: "/home",
+      debugShowCheckedModeBanner: false, //to hide debug banner
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
@@ -142,8 +143,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.pink,
           fontFamily: GoogleFonts.lato().fontFamily),
       darkTheme: ThemeData(
-          // brightness: Brightness.dark,
-          primarySwatch: Colors.deepPurple),
+        // brightness: Brightness.dark,
+        primarySwatch: Colors.deepPurple,
+      ),
     );
   }
 }
