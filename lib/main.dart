@@ -133,9 +133,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // initialRoute: "/home",
       routes: {
-        "/": (context) => const LoginPage(),
-        MyRoutes.homeRoute: (context) => const HomePage(),
-        MyRoutes.loginRoute: (context) => const LoginPage(),
+        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
       themeMode: ThemeMode.system,
       theme: ThemeData(
