@@ -11,11 +11,16 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Catalog App"),
+        title: const Text(
+          "Catalog App",
+          // style: TextStyle(color: Colors.black),
+        ),
       ),
+      // ignore: avoid_unnecessary_containers
       body: Container(
         child: Center(child: Text("Welcome to $appName")),
       ),
+      // ignore: prefer_const_constructors
       drawer: MyDrawer(),
     );
   }

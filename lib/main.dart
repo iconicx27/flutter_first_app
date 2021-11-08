@@ -114,10 +114,14 @@
 //   }
 // }
 
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/home_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/utils/routes.dart';
+import 'package:flutter_app/utils/themes.dart';
+// ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -139,13 +143,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.loginRoute: (context) => LoginPage(),
       },
       themeMode: ThemeMode.system,
-      theme: ThemeData(
-          primarySwatch: Colors.pink,
-          fontFamily: GoogleFonts.lato().fontFamily),
-      darkTheme: ThemeData(
-        // brightness: Brightness.dark,
-        primarySwatch: Colors.deepPurple,
-      ),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
     );
   }
 }
