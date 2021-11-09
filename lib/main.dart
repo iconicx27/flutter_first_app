@@ -120,7 +120,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/home_page.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/utils/routes.dart';
-import 'package:flutter_app/utils/themes.dart';
+import 'package:flutter_app/widgets/themes.dart';
 // ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
 
