@@ -5,6 +5,7 @@ class ItemWidget extends StatelessWidget {
   final Item item;
 
   const ItemWidget({Key? key, required this.item})
+      // ignore: unnecessary_null_comparison
       : assert(item != null),
         super(key: key);
 
@@ -13,6 +14,7 @@ class ItemWidget extends StatelessWidget {
     return Card(
       child: ListTile(
         onTap: () {
+          // ignore: avoid_print
           print("${item.name} pressed");
         },
         leading: Image.network(item.image),
@@ -21,7 +23,8 @@ class ItemWidget extends StatelessWidget {
         trailing: Text(
           "\$${item.price.toString()}",
           textScaleFactor: 1.3,
-          style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.pink, fontWeight: FontWeight.bold),
         ),
       ),
     );
