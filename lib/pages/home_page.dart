@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_import, use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -42,20 +42,36 @@ class _HomePageState extends State<HomePage> {
     String appName = "MyFirstApp";
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Catalog App",
-          style: TextStyle(
-              fontFamily: GoogleFonts.poppins().fontFamily,
-              fontSize: 19,
-              fontWeight: FontWeight.bold),
-        ),
+      appBar: AppBar(centerTitle: true, title: HeaderText()),
+      body: MyBody(),
+      drawer: MyDrawer(),
+    );
+  }
+}
+
+class HeaderText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text(
+        "Catalog App",
+        style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily,
+            fontSize: 19,
+            fontWeight: FontWeight.bold),
       ),
-      // ignore: avoid_unnecessary_containers
-      body: Padding(
+    );
+  }
+}
+
+class MyBody extends StatelessWidget {
+  const MyBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
-        // ignore: unrelated_type_equality_checks
         child: (CatalogModel.items != Null && CatalogModel.items.isNotEmpty)
             ? GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -100,8 +116,6 @@ class _HomePageState extends State<HomePage> {
                 child: CircularProgressIndicator(),
               ),
       ),
-      // ignore: prefer_const_constructors
-      drawer: MyDrawer(),
     );
   }
 }
