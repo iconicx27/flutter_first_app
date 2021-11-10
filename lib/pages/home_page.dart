@@ -7,6 +7,8 @@ import 'package:flutter_app/widgets/drawer.dart';
 import 'package:flutter_app/widgets/item_widget.dart';
 import 'dart:convert';
 
+import 'package:google_fonts/google_fonts.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -42,9 +44,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Catalog App",
-          // style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily,
+          ),
         ),
       ),
       // ignore: avoid_unnecessary_containers
@@ -54,7 +58,7 @@ class _HomePageState extends State<HomePage> {
         child: (CatalogModel.items != Null && CatalogModel.items.isNotEmpty)
             ? GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                  crossAxisCount: 1,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
                 ),
@@ -78,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                       child: Image.network(item.image),
                       footer: Container(
                         child: Text(
-                          item.price.toString(),
+                          "\$${item.price.toString()}",
                           style: TextStyle(color: Colors.white),
                         ),
                         padding: EdgeInsets.all(12),
