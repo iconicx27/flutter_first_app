@@ -47,8 +47,9 @@ class _HomePageState extends State<HomePage> {
         title: Text(
           "Catalog App",
           style: TextStyle(
-            fontFamily: GoogleFonts.poppins().fontFamily,
-          ),
+              fontFamily: GoogleFonts.poppins().fontFamily,
+              fontSize: 19,
+              fontWeight: FontWeight.bold),
         ),
       ),
       // ignore: avoid_unnecessary_containers
