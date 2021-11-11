@@ -86,28 +86,50 @@ class MyBody extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     child: GridTile(
-                      header: Container(
-                        child: Text(
-                          item.name,
-                          style: TextStyle(color: Colors.white),
+                        header: Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                item.name,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                item.desc,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                          padding: EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: Colors.pink,
+                          ),
                         ),
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.pink,
-                        ),
-                      ),
-                      child: Image.network(item.image),
-                      footer: Container(
-                        child: Text(
-                          "\$${item.price.toString()}",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
+                        child: Image.network(item.image),
+                        footer: Container(
+                          child: ButtonBar(
+                            alignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "\$${item.price.toString()}",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              ElevatedButton(
+                                  onPressed: () {}, child: Text("Buy"))
+                            ],
+                          ),
+                          padding: EdgeInsets.zero,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        )),
                   );
                 },
                 itemCount: CatalogModel.items.length,
