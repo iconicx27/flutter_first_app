@@ -1,8 +1,9 @@
-// ignore_for_file: avoid_print, unused_import, use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: avoid_print, unused_import, use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers, unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/models/catalog.dart';
+import 'package:flutter_app/pages/home_detail_page.dart';
 import 'package:flutter_app/widgets/drawer.dart';
 import 'package:flutter_app/widgets/item_widget.dart';
 import 'dart:convert';
@@ -81,55 +82,64 @@ class MyBody extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   final item = CatalogModel.items[index];
-                  return Card(
-                    clipBehavior: Clip.antiAlias,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: GridTile(
-                        header: Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                item.name,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                  return InkWell(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                HomeDetailPage(catalog: item))),
+                    child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                          header: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  item.name,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                item.desc,
-                                style: TextStyle(
-                                  color: Colors.white,
+                                Text(
+                                  item.desc,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
+                            padding: EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Colors.pink,
+                            ),
                           ),
-                          padding: EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            color: Colors.pink,
-                          ),
-                        ),
-                        child: Image.network(item.image),
-                        footer: Container(
-                          child: ButtonBar(
-                            alignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "\$${item.price.toString()}",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              ElevatedButton(
-                                  onPressed: () {}, child: Text("Buy"))
-                            ],
-                          ),
-                          padding: EdgeInsets.zero,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                          ),
-                        )),
+                          child: Hero(
+                              tag: Key(item.id.toString()),
+                              child: Image.network(item.image)),
+                          footer: Container(
+                            child: ButtonBar(
+                              alignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "\$${item.price.toString()}",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                ElevatedButton(
+                                    onPressed: () {}, child: Text("Buy"))
+                              ],
+                            ),
+                            padding: EdgeInsets.zero,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                            ),
+                          )),
+                    ),
                   );
                 },
                 itemCount: CatalogModel.items.length,
