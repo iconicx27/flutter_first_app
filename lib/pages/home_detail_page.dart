@@ -1,5 +1,4 @@
 // ignore_for_file: unrelated_type_equality_checks, sized_box_for_whitespace, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/catalog.dart';
 
@@ -47,6 +46,15 @@ class HomeDetailPage extends StatelessWidget {
                       fontSize: 15,
                     ),
                   ),
+                  Container(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      "iPhone 12, the new one in the iPhone 12 series was launched on October 13, 2020. The smartphone features an immersive 6.10-inch touchscreen display that has a resolution of 1170x2532 pixels at a pixel density of 460 pixels per inch (ppi).",
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ))
@@ -66,7 +74,7 @@ class HomeDetailPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               child: Text(
-                "Buy",
+                "Add to Cart",
                 style: TextStyle(fontSize: 15),
               ),
               style: ElevatedButton.styleFrom(),

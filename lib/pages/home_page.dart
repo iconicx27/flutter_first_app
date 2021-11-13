@@ -1,9 +1,11 @@
 // ignore_for_file: avoid_print, unused_import, use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers, unrelated_type_equality_checks
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/models/catalog.dart';
 import 'package:flutter_app/pages/home_detail_page.dart';
+import 'package:flutter_app/utils/routes.dart';
 import 'package:flutter_app/widgets/drawer.dart';
 import 'package:flutter_app/widgets/item_widget.dart';
 import 'dart:convert';
@@ -44,6 +46,10 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: HeaderText()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+        child: Icon(CupertinoIcons.cart),
+      ),
       body: MyBody(),
       drawer: MyDrawer(),
     );
@@ -131,7 +137,8 @@ class MyBody extends StatelessWidget {
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 ElevatedButton(
-                                    onPressed: () {}, child: Text("Buy"))
+                                    onPressed: () {},
+                                    child: Text("Add to Cart"))
                               ],
                             ),
                             padding: EdgeInsets.zero,

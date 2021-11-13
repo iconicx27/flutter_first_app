@@ -19,6 +19,7 @@ class MyTheme {
   static ThemeData darkTheme(BuildContext context) => ThemeData(
       // brightness: Brightness.dark,
       primarySwatch: Colors.deepPurple,
+      fontFamily: GoogleFonts.poppins().fontFamily,
       appBarTheme: AppBarTheme(
         color: Colors.black,
         elevation: 0.0,
