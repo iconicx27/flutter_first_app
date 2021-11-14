@@ -10,6 +10,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
           "My Cart",
@@ -25,7 +26,7 @@ class CartPage extends StatelessWidget {
               child: Container(
                   padding: EdgeInsets.only(right: 32, left: 32),
                   child: _CartList())),
-          Divider(),
+          // Divider(),
           _CartTotal(),
         ],
       ),
