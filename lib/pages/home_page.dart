@@ -87,7 +87,7 @@ class MyBody extends StatelessWidget {
                   crossAxisSpacing: 16,
                 ),
                 itemBuilder: (context, index) {
-                  final item = CatalogModel.getByPosition(index);
+                  final item = CatalogModel.items[index];
                   return InkWell(
                     onTap: () => Navigator.push(
                         context,
