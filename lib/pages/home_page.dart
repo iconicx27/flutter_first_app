@@ -83,7 +83,11 @@ class MyBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(
+          top: 16,
+          right: 16,
+          left: 16,
+        ),
         child: (CatalogModel.items != Null && CatalogModel.items.isNotEmpty)
             ? GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
