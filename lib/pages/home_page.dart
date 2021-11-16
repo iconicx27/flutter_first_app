@@ -9,6 +9,7 @@ import 'package:flutter_app/utils/routes.dart';
 import 'package:flutter_app/widgets/drawer.dart';
 import 'package:flutter_app/widgets/item_widget.dart';
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,6 +21,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // final url = "https://api.jsonbin.io/b/604dbddb683e7e079c4eefd3";
+
   @override
   void initState() {
     super.initState();
@@ -30,6 +33,8 @@ class _HomePageState extends State<HomePage> {
     await Future.delayed(const Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
+    // final response = await http.get(Uri.parse(url));
+    // final catalogJson = response.body;  //This is for API
     final decodeData = jsonDecode(catalogJson);
     var productsData = decodeData["products"];
     CatalogModel.items = List.from(productsData)

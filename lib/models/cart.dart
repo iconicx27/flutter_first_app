@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_getters_setters
+
 import 'package:flutter_app/models/catalog.dart';
 
 class CartModel {
